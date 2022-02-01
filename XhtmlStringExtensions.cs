@@ -24,7 +24,7 @@ namespace PictureRenderer.Optimizely
                 return xhtmlString;
             }
 
-            //todo: extend regex so that it doesn't match img element inside picture element (even though that would be a very rare edge case). https://www.regular-expressions.info/lookaround.html
+            //todo: extend regex so that it doesn't match img element inside picture element (even though that would be a very rare edge case). https://www.regular-expressions.info/lookaround.html https://www.rexegg.com/regex-lookarounds.html
             var processedText = Regex.Replace(xhtmlString.ToInternalString(), "(<img.*?>)", m => GetPictureFromImg(m.Groups[1].Value, maxWidth));
 
             return new XhtmlString(processedText);
